@@ -15,7 +15,7 @@ namespace Nursia
 
 		private readonly static AssetLoader<Scene> _sceneLoader = (manager, assetName, settings, tag) =>
 		{
-			var data = manager.LoadString(assetName);
+			var data = manager.ReadAsString(assetName);
 			return Scene.ReadFromString(data, manager);
 		};
 

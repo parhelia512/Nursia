@@ -1,4 +1,5 @@
-﻿using System;
+﻿using AssetManagementBase;
+using System;
 
 namespace ModelViewer
 {
@@ -6,7 +7,8 @@ namespace ModelViewer
 	{
 		static void Main(string[] args)
 		{
-			foreach(var arg in args)
+			AMBConfiguration.Logger = Console.WriteLine;
+			foreach (var arg in args)
 			{
 				if (arg == "/nf")
 				{

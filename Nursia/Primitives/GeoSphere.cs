@@ -1,7 +1,7 @@
 ﻿using Nursia.Utilities;
-using Nursia.Rendering;
-using Nursia.Data.Meshes;
 using Nursia.Attributes;
+using DigitalRiseModel;
+using DigitalRiseModel.Primitives;
 
 namespace Nursia.Primitives
 {
@@ -43,6 +43,6 @@ namespace Nursia.Primitives
 			}
 		}
 
-		protected override Mesh CreateMesh() => MeshHelper.CreateGeoSphere(Radius, Tessellation, UScale, VScale, IsLeftHanded);
+		protected override DrMeshPart CreateMesh() => MeshPrimitives.CreateGeoSphereMeshPart(Nrs.GraphicsDevice, Radius, Tessellation, UScale, VScale, IsLeftHanded);
 	}
 }

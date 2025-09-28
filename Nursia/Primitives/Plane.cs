@@ -1,8 +1,8 @@
 ﻿using Microsoft.Xna.Framework;
-using Nursia.Rendering;
 using Nursia.Utilities;
-using Nursia.Data.Meshes;
 using Nursia.Attributes;
+using DigitalRiseModel.Primitives;
+using DigitalRiseModel;
 
 namespace Nursia.Primitives
 {
@@ -78,6 +78,6 @@ namespace Nursia.Primitives
 			}
 		}
 
-		protected override Mesh CreateMesh() => MeshHelper.CreatePlane(Size.X, Size.Y, Tessellation.X, Tessellation.Y, UScale, VScale, GenerateBackface, IsLeftHanded, NormalDirection);
+		protected override DrMeshPart CreateMesh() => MeshPrimitives.CreatePlaneMeshPart(Nrs.GraphicsDevice, Size.X, Size.Y, Tessellation.X, Tessellation.Y, UScale, VScale, GenerateBackface, IsLeftHanded, NormalDirection);
 	}
 }

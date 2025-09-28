@@ -212,13 +212,9 @@ namespace Nursia.Rendering
 				foreach (var pass in effectBinding.Effect.CurrentTechnique.Passes)
 				{
 					pass.Apply();
-					device.DrawIndexedPrimitives(mesh.PrimitiveType, 0,
-						0,
-						mesh.VertexCount,
-						0,
-						mesh.PrimitiveCount);
+					mesh.Draw(device);
 
-					_statistics.VerticesDrawn += mesh.VertexCount;
+					_statistics.VerticesDrawn += mesh.NumVertices;
 					_statistics.PrimitivesDrawn += mesh.PrimitiveCount;
 					++_statistics.DrawCalls;
 				}

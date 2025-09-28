@@ -29,6 +29,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XNAssets.FNA.Core", "..\XNA
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XNAssets.FontStashSharp.FNA.Core", "..\XNAssets\src\XNAssets.FontStashSharp\XNAssets.FontStashSharp.FNA.Core.csproj", "{6C90CE78-ED1F-AA5B-A8DB-7958E76C8DCF}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DigitalRiseModel.FNA.Core", "..\DigitalRiseModel\Source\DigitalRiseModel\DigitalRiseModel.FNA.Core.csproj", "{D42A8C6A-1D4F-021B-0194-BC613074FFFC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DigitalRiseModel.Gltf.FNA.Core", "..\DigitalRiseModel\Source\DigitalRiseModel.Gltf\DigitalRiseModel.Gltf.FNA.Core.csproj", "{94069441-3A62-6A81-DBFC-E260F1D309C6}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -79,6 +83,14 @@ Global
 		{6C90CE78-ED1F-AA5B-A8DB-7958E76C8DCF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6C90CE78-ED1F-AA5B-A8DB-7958E76C8DCF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6C90CE78-ED1F-AA5B-A8DB-7958E76C8DCF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D42A8C6A-1D4F-021B-0194-BC613074FFFC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D42A8C6A-1D4F-021B-0194-BC613074FFFC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D42A8C6A-1D4F-021B-0194-BC613074FFFC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D42A8C6A-1D4F-021B-0194-BC613074FFFC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{94069441-3A62-6A81-DBFC-E260F1D309C6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{94069441-3A62-6A81-DBFC-E260F1D309C6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{94069441-3A62-6A81-DBFC-E260F1D309C6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{94069441-3A62-6A81-DBFC-E260F1D309C6}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -92,6 +104,8 @@ Global
 		{7C62ED43-D35F-41C8-9300-3FA142607B3C} = {DF255E87-4186-4E0B-92AA-BE29C5A835B8}
 		{55A6A49E-FCB0-0FA9-0CEC-734EB69F8855} = {96227FF8-DD5C-4E08-830A-3C730D75961D}
 		{6C90CE78-ED1F-AA5B-A8DB-7958E76C8DCF} = {96227FF8-DD5C-4E08-830A-3C730D75961D}
+		{D42A8C6A-1D4F-021B-0194-BC613074FFFC} = {96227FF8-DD5C-4E08-830A-3C730D75961D}
+		{94069441-3A62-6A81-DBFC-E260F1D309C6} = {96227FF8-DD5C-4E08-830A-3C730D75961D}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {35ACDF4E-2CE2-46B1-A19F-35DC131069A1}

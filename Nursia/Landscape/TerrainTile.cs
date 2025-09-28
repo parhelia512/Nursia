@@ -1,6 +1,6 @@
-﻿using Microsoft.Xna.Framework;
+﻿using DigitalRiseModel;
+using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
-using Nursia.Rendering;
 using Nursia.Utilities;
 
 namespace Nursia.Landscape
@@ -12,12 +12,12 @@ namespace Nursia.Landscape
 		internal readonly Color[] _splatData;
 		private readonly Matrix _transform;
 
-		private Mesh _meshData = null;
+		private DrMeshPart _meshData = null;
 		private Texture2D _splatTexture;
 
 		public Terrain Terrain { get; }
 
-		public Mesh MeshData
+		public DrMeshPart MeshData
 		{
 			get
 			{
@@ -237,7 +237,7 @@ namespace Nursia.Landscape
 				}
 			}
 
-			_meshData = new Mesh(vertices, indices);
+			_meshData = new DrMeshPart(Nrs.GraphicsDevice, vertices, indices);
 		}
 	}
 }

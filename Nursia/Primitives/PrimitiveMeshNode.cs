@@ -1,17 +1,17 @@
-﻿using Nursia.Rendering;
-using Nursia.Utilities;
+﻿using DigitalRiseModel;
 using Nursia.Standard;
+using Nursia.Utilities;
 
 namespace Nursia.Primitives
 {
 	public abstract class PrimitiveMeshNode: MeshNodeBase
 	{
 		private bool _isLeftHanded;
-		private Mesh _mesh;
+		private DrMeshPart _mesh;
 		private float _uScale = 1.0f;
 		private float _vScale = 1.0f;
 
-		protected override Mesh RenderMesh
+		protected override DrMeshPart RenderMesh
 		{
 			get
 			{
@@ -72,7 +72,7 @@ namespace Nursia.Primitives
 			}
 		}
 
-		protected abstract Mesh CreateMesh();
+		protected abstract DrMeshPart CreateMesh();
 
 		public void InvalidateMesh()
 		{

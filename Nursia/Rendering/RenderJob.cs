@@ -1,4 +1,5 @@
-﻿using Microsoft.Xna.Framework;
+﻿using DigitalRiseModel;
+using Microsoft.Xna.Framework;
 using System;
 
 namespace Nursia.Rendering
@@ -8,9 +9,9 @@ namespace Nursia.Rendering
 		public int EffectBatchId => Material.EffectBinding.BatchId;
 		public IMaterial Material { get; }
 		public Matrix Transform { get; }
-		public Mesh Mesh { get; }
+		public DrMeshPart Mesh { get; }
 
-		public RenderJob(IMaterial material, Matrix transform, Mesh mesh)
+		public RenderJob(IMaterial material, Matrix transform, DrMeshPart mesh)
 		{
 			Material = material ?? throw new ArgumentNullException(nameof(material));
 			Transform = transform;

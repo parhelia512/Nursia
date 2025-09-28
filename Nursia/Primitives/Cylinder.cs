@@ -1,7 +1,7 @@
 ﻿using Nursia.Utilities;
-using Nursia.Rendering;
-using Nursia.Data.Meshes;
 using Nursia.Attributes;
+using DigitalRiseModel;
+using DigitalRiseModel.Primitives;
 
 namespace Nursia.Primitives
 {
@@ -60,6 +60,6 @@ namespace Nursia.Primitives
 			}
 		}
 
-		protected override Mesh CreateMesh() => MeshHelper.CreateCylinder(Height, Radius, Tessellation, UScale, VScale, IsLeftHanded);
+		protected override DrMeshPart CreateMesh() => MeshPrimitives.CreateCylinderMeshPart(Nrs.GraphicsDevice, Height, Radius, Tessellation, UScale, VScale, IsLeftHanded);
 	}
 }

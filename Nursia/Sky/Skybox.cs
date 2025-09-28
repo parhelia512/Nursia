@@ -1,4 +1,5 @@
 ﻿using AssetManagementBase;
+using DigitalRiseModel;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Newtonsoft.Json;
@@ -28,11 +29,11 @@ namespace Nursia.Sky
 	{
 		private static readonly SkyboxEffectBinding _binding =
 			EffectsRegistry.GetStockEffectBinding<SkyboxEffectBinding>("SkyboxEffect");
-		private readonly Mesh _mesh;
+		private readonly DrMeshPart _mesh;
 
 		[Browsable(false)]
 		[JsonIgnore]
-		public Mesh Mesh => _mesh;
+		public DrMeshPart Mesh => _mesh;
 
 		[Browsable(false)]
 		[JsonIgnore]

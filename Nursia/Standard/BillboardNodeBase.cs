@@ -1,11 +1,11 @@
-﻿using Microsoft.Xna.Framework;
+﻿using DigitalRiseModel;
+using DigitalRiseModel.Primitives;
+using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Newtonsoft.Json;
-using Nursia.Data.Meshes;
 using Nursia.Rendering;
 using System.Collections.Generic;
 using System.ComponentModel;
-using Plane = Nursia.Primitives.Plane;
 
 namespace Nursia.Standard
 {
@@ -29,18 +29,18 @@ namespace Nursia.Standard
 
 	public abstract class BillboardNodeBase : SceneNode, IMaterial
 	{
-		private static Mesh _mesh;
+		private static DrMeshPart _mesh;
 		private BillboardEffectBinding _effectBinding;
 
 		public Color Color { get; set; } = Color.White;
 
-		private static Mesh Mesh
+		private static DrMeshPart Mesh
 		{
 			get
 			{
 				if (_mesh == null)
 				{
-					_mesh = MeshHelper.CreatePlane();
+					_mesh = MeshPrimitives.CreatePlaneMeshPart(Nrs.GraphicsDevice);
 				}
 
 				return _mesh;

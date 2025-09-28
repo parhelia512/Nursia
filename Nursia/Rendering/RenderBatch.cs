@@ -1,4 +1,5 @@
-﻿using Microsoft.Xna.Framework;
+﻿using DigitalRiseModel;
+using Microsoft.Xna.Framework;
 using Nursia.Lights;
 using Nursia.Utilities;
 using System.Collections.Generic;
@@ -66,7 +67,7 @@ namespace Nursia.Rendering
 			Clear();
 		}
 
-		public void BatchJob(IMaterial material, Matrix transform, Mesh mesh)
+		public void BatchJob(IMaterial material, Matrix transform, DrMeshPart mesh)
 		{
 			if (Pass == RenderBatchPass.ShadowMap)
 			{

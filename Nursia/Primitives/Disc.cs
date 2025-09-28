@@ -1,9 +1,8 @@
 ﻿using Microsoft.Xna.Framework;
-using Nursia.Rendering;
 using Nursia.Utilities;
-using System;
-using Nursia.Data.Meshes;
 using Nursia.Attributes;
+using DigitalRiseModel;
+using DigitalRiseModel.Primitives;
 
 namespace Nursia.Primitives
 {
@@ -65,6 +64,6 @@ namespace Nursia.Primitives
 			}
 		}
 
-		protected override Mesh CreateMesh() => MeshHelper.CreateDisc(Radius, MathHelper.ToRadians(SectorAngle), Tessellation, UScale, VScale, IsLeftHanded);
+		protected override DrMeshPart CreateMesh() => MeshPrimitives.CreateDiscMeshPart(Nrs.GraphicsDevice, Radius, MathHelper.ToRadians(SectorAngle), Tessellation, UScale, VScale, IsLeftHanded);
 	}
 }

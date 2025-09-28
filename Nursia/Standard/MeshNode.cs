@@ -1,5 +1,5 @@
-﻿using Newtonsoft.Json;
-using Nursia.Rendering;
+﻿using DigitalRiseModel;
+using Newtonsoft.Json;
 using System.ComponentModel;
 
 namespace Nursia.Standard
@@ -8,8 +8,8 @@ namespace Nursia.Standard
 	{
 		[Browsable(false)]
 		[JsonIgnore]
-		public Mesh Mesh { get; set; }
+		public DrMeshPart Mesh { get; set; }
 
-		protected override Mesh RenderMesh => Mesh;
+		protected override DrMeshPart RenderMesh => Mesh;
 	}
 }

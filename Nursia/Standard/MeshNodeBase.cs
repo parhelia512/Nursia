@@ -1,4 +1,5 @@
 ﻿using AssetManagementBase;
+using DigitalRiseModel;
 using Microsoft.Xna.Framework;
 using Newtonsoft.Json;
 using Nursia.Rendering;
@@ -9,7 +10,7 @@ namespace Nursia.Standard
 {
 	public abstract class MeshNodeBase : SceneNode
 	{
-		protected abstract Mesh RenderMesh { get; }
+		protected abstract DrMeshPart RenderMesh { get; }
 
 		[Category("Appearance")]
 		public IMaterial Material { get; set; }

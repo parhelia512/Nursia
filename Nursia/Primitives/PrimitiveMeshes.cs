@@ -1,8 +1,6 @@
-﻿using System.Collections.Generic;
+﻿using DigitalRiseModel;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
-using Nursia.Rendering;
-using VertexPosition = Nursia.Vertices.VertexPosition;
 
 namespace Nursia.Primitives
 {
@@ -75,11 +73,11 @@ namespace Nursia.Primitives
 				new VertexPositionTexture(new Vector3(1, 0, 1), new Vector2(1, 1))
 		};
 
-		private static Mesh _cubePosition;
-		private static Mesh _squarePositionFromZeroToOne;
-		private static Mesh _squarePositionTextureFromZeroToOne;
+		private static DrMeshPart _cubePosition;
+		private static DrMeshPart _squarePositionFromZeroToOne;
+		private static DrMeshPart _squarePositionTextureFromZeroToOne;
 
-		public static Mesh CubePositionFromMinusOneToOne
+		public static DrMeshPart CubePositionFromMinusOneToOne
 		{
 			get
 			{
@@ -92,7 +90,7 @@ namespace Nursia.Primitives
 			}
 		}
 
-		public static Mesh CubePositionFromZeroToOne
+		public static DrMeshPart CubePositionFromZeroToOne
 		{
 			get
 			{
@@ -105,7 +103,7 @@ namespace Nursia.Primitives
 			}
 		}
 
-		public static Mesh SquarePositionFromMinusOneToOne
+		public static DrMeshPart SquarePositionFromMinusOneToOne
 		{
 			get
 			{
@@ -118,7 +116,7 @@ namespace Nursia.Primitives
 			}
 		}
 
-		public static Mesh SquarePositionFromZeroToOne
+		public static DrMeshPart SquarePositionFromZeroToOne
 		{
 			get
 			{
@@ -131,28 +129,22 @@ namespace Nursia.Primitives
 			}
 		}
 
-		public static Mesh SquarePositionTextureFromZeroToOne
+		public static DrMeshPart SquarePositionTextureFromZeroToOne
 		{
 			get
 			{
 				if (_squarePositionTextureFromZeroToOne == null)
 				{
-					_squarePositionTextureFromZeroToOne = new Mesh(_squarePositionTextureFromZeroToOneData, _squareIndices);
+					_squarePositionTextureFromZeroToOne = new DrMeshPart(Nrs.GraphicsDevice, _squarePositionTextureFromZeroToOneData, _squareIndices);
 				}
 
 				return _squarePositionTextureFromZeroToOne;
 			}
 		}
 
-		private static Mesh CreatePrimitivePosition(Vector3[] positions, ushort[] indices)
+		private static DrMeshPart CreatePrimitivePosition(Vector3[] positions, ushort[] indices)
 		{
-			var vertices = new List<VertexPosition>();
-			foreach (var point in positions)
-			{
-				vertices.Add(new VertexPosition(point));
-			}
-
-			return new Mesh(vertices.ToArray(), indices);
+			return new DrMeshPart(Nrs.GraphicsDevice, positions, indices);
 		}
 	}
 }

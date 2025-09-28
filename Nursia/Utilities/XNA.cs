@@ -36,5 +36,18 @@ namespace Nursia.Utilities
 
 			return 0;
 		}
+
+		public static EffectParameter FindParameterByName(this Effect effect, string name)
+		{
+			foreach (var par in effect.Parameters)
+			{
+				if (par.Name == name)
+				{
+					return par;
+				}
+			}
+
+			return null;
+		}
 	}
 }

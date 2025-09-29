@@ -19,7 +19,7 @@ namespace NursiaEditor
 			{
 				if (_fontSystem == null)
 				{
-					_fontSystem = _assetManager.LoadFontSystem("Fonts/Inter-Regular.ttf");
+					_fontSystem = XNAssetsExtFontStashSharp.LoadFontSystem(_assetManager, "Fonts/Inter-Regular.ttf");
 				}
 
 				return _fontSystem;

@@ -1,62 +1,26 @@
-﻿using Microsoft.Xna.Framework;
+﻿using DigitalRiseModel;
+using DigitalRiseModel.Primitives;
+using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
-using Nursia.Modelling;
+using Nursia;
 using Nursia.Rendering;
 using Nursia.Standard;
 using Nursia.Utility;
-using Nursia.Vertices;
 
 namespace NursiaEditor.Utility
 {
 	internal static class _3DUtils
 	{
-		private static Mesh _selectionMesh;
+		private static DrMeshPart _selectionMesh;
 		private static EditorNode _selectionNode;
 
-		private static Mesh SelectionMesh
+		private static DrMeshPart SelectionMesh
 		{
 			get
 			{
 				if (_selectionMesh == null)
 				{
-					var vertices = new VertexPosition[]
-					{
-						new VertexPosition(new Vector3(-0.5f, 0.5f, 0.5f)),
-						new VertexPosition(new Vector3(0.5f, 0.5f, 0.5f)),
-						new VertexPosition(new Vector3(0.5f, -0.5f, 0.5f)),
-						new VertexPosition(new Vector3(-0.5f, -0.5f, 0.5f)),
-						new VertexPosition(new Vector3(-0.5f, 0.5f, -0.5f)),
-						new VertexPosition(new Vector3(0.5f, 0.5f, -0.5f)),
-						new VertexPosition(new Vector3(0.5f, -0.5f, -0.5f)),
-						new VertexPosition(new Vector3(-0.5f, -0.5f, -0.5f))
-					};
-
-					var indices = new ushort[]
-					{
-						0, 1,
-						1, 2,
-						2, 3,
-						3, 0,
-
-						4, 5,
-						5, 6,
-						6, 7,
-						7, 4,
-
-						0, 4,
-						1, 5,
-						2, 6,
-						3, 7,
-
-						3, 1,
-						5, 2,
-						7, 0,
-						6, 4,
-						1, 4,
-						3, 6
-					};
-
-					_selectionMesh = new Mesh(vertices, indices, PrimitiveType.LineList);
+					_selectionMesh = MeshPrimitives.CreateBoxLinesMeshPart(Nrs.GraphicsDevice, new BoundingBox(Vector3.Zero, Vector3.One));
 				}
 
 				return _selectionMesh;

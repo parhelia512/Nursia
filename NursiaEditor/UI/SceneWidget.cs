@@ -5,7 +5,6 @@ using Microsoft.Xna.Framework.Input;
 using Myra.Graphics2D.UI;
 using Nursia;
 using Nursia.Rendering;
-using Nursia.Modelling;
 using System.Collections.Generic;
 using Nursia.Utilities;
 using static Nursia.Utilities.CameraInputController;
@@ -13,7 +12,7 @@ using Nursia.Standard;
 using NursiaEditor.Utility;
 using Microsoft.Build.Construction;
 using Myra.Graphics2D;
-using Nursia.Vertices;
+using DigitalRiseModel;
 
 namespace NursiaEditor.UI
 {
@@ -31,8 +30,8 @@ namespace NursiaEditor.UI
 		private readonly ForwardRenderer _renderer = new ForwardRenderer();
 		private CameraInputController _controller;
 		private MeshNode _gridMesh;
-		private Nursia.Modelling.NursiaModelMesh _waterMarker;
-		private NursiaModel _modelMarker;
+		private DrMeshPart _waterMarker;
+		private DrModel _modelMarker;
 		private Vector3? _touchDownStart;
 		private readonly bool[] _keysDown = new bool[256];
 
@@ -60,21 +59,14 @@ namespace NursiaEditor.UI
 			{
 				if (_gridMesh == null)
 				{
-					var vertices = new List<VertexPosition>();
+					var vertices = new List<Vector3>();
 					var indices = new List<ushort>();
 
 					ushort idx = 0;
 					for (var x = -GridSize; x <= GridSize; ++x)
 					{
-						vertices.Add(new VertexPosition
-						{
-							Position = new Vector3(x, 0, -GridSize)
-						});
-
-						vertices.Add(new VertexPosition
-						{
-							Position = new Vector3(x, 0, GridSize)
-						});
+						vertices.Add(new Vector3(x, 0, -GridSize));
+						vertices.Add(new Vector3(x, 0, GridSize));
 
 						indices.Add(idx);
 						++idx;
@@ -84,15 +76,8 @@ namespace NursiaEditor.UI
 
 					for (var z = -GridSize; z <= GridSize; ++z)
 					{
-						vertices.Add(new VertexPosition
-						{
-							Position = new Vector3(-GridSize, 0, z)
-						});
-
-						vertices.Add(new VertexPosition
-						{
-							Position = new Vector3(GridSize, 0, z)
-						});
+						vertices.Add(new Vector3(-GridSize, 0, z));
+						vertices.Add(new Vector3(GridSize, 0, z));
 
 						indices.Add(idx);
 						++idx;
@@ -100,7 +85,7 @@ namespace NursiaEditor.UI
 						++idx;
 					}
 
-					var mesh = new Mesh(vertices.ToArray(), indices.ToArray(), PrimitiveType.LineList);
+					var mesh = new DrMeshPart(Nrs.GraphicsDevice, vertices.ToArray(), indices.ToArray(), PrimitiveType.LineList);
 
 					_gridMesh = new MeshNode
 					{

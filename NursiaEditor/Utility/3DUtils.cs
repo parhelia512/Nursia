@@ -59,9 +59,9 @@ namespace NursiaEditor.Utility
 			if (obj is BaseLight || obj is Camera)
 			{
 				result = MathUtils.CreateBoundingBox(
-					0, 1,
-					0, 1,
-					0, 1);
+					-0.5f, 0.5f,
+					-0.5f, 0.5f,
+					-0.5f, 0.5f);
 			}
 
 			var asModel = obj as NursiaModelNode;
@@ -88,7 +88,7 @@ namespace NursiaEditor.Utility
 
 			var result = SelectionNode;
 
-			var scale = Matrix.CreateScale(box.Value.ToScale());
+			var scale = Matrix.CreateScale(box.Value.ToScale()) * Matrix.CreateTranslation(box.Value.Min);
 			result.Transform = scale * node.GlobalTransform;
 
 			return result;

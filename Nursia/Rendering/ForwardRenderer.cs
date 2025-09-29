@@ -364,8 +364,8 @@ namespace Nursia.Rendering
 				foreach (var job in _batch.Jobs)
 				{
 					var t = job.Transform;
-					var bb = job.Mesh.BoundingBox.Transform(ref t);
-					DebugShapeRenderer.AddBoundingBox(bb, Color.Blue);
+					var boundingBox = job.Mesh.BoundingBox.Transform(ref t);
+					DebugShapeRenderer.AddBoundingBox(boundingBox, Color.Blue);
 				}
 			}
 

@@ -46,8 +46,7 @@ namespace Nursia.Standard
 				// Thus to avoid applying parent transform twice, we use
 				// ordinary Transform(not AbsoluteTransform) for parts with bones
 				var bone = mesh.ParentBone;
-				var nodeTransform = ModelInstance.GetBoneGlobalTransform(bone.Index) * rootTransform;
-				Matrix transform = bone.Skin != null ? rootTransform : nodeTransform;
+				Matrix transform = bone.Skin != null ? rootTransform : ModelInstance.GetBoneGlobalTransform(bone.Index) * rootTransform;
 
 				// Apply the effect and render items
 				Matrix[] bonesTransforms = null;
@@ -59,7 +58,7 @@ namespace Nursia.Standard
 				foreach (var part in mesh.MeshParts)
 				{
 					var material = (IMaterial)part.Tag;
- 					batch.BatchJob(material, transform, part, part.BoundingBox.Transform(ref nodeTransform), bonesTransforms);
+ 					batch.BatchJob(material, transform, part, bonesTransforms);
 				}
 			}
 		}

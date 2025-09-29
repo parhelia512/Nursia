@@ -11,15 +11,13 @@ namespace Nursia.Rendering
 		public Matrix Transform;
 		public DrMeshPart Mesh;
 		public Matrix[] BonesTransforms;
-		public BoundingBox BoundingBox;
 
-		public RenderJob(IMaterial material, Matrix transform, DrMeshPart mesh, BoundingBox boundingBox, Matrix[] bonesTransforms = null)
+		public RenderJob(IMaterial material, Matrix transform, DrMeshPart mesh, Matrix[] bonesTransforms = null)
 		{
 			Material = material ?? throw new ArgumentNullException(nameof(material));
 			Transform = transform;
 			Mesh = mesh ?? throw new ArgumentNullException(nameof(mesh));
 			BonesTransforms = bonesTransforms;
-			BoundingBox = boundingBox;
 		}
 	}
 }

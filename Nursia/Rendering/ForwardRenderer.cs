@@ -198,9 +198,9 @@ namespace Nursia.Rendering
 					effectBinding.WorldInverseTranspose.SetValue(worldInverseTranspose);
 				}
 
-				if (job.Mesh.HasBones)
+				if (job.BonesTransforms != null)
 				{
-					effectBinding.Bones?.SetValue(job.Mesh.BonesTransforms);
+					effectBinding.Bones?.SetValue(job.BonesTransforms);
 				}
 
 				job.Material.SetParameters();

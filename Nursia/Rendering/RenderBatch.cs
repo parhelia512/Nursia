@@ -67,7 +67,7 @@ namespace Nursia.Rendering
 			Clear();
 		}
 
-		public void BatchJob(IMaterial material, Matrix transform, DrMeshPart mesh)
+		public void BatchJob(IMaterial material, Matrix transform, DrMeshPart mesh, BoundingBox? transformedBox = null, Matrix[] bonesTransforms = null)
 		{
 			if (Pass == RenderBatchPass.ShadowMap)
 			{
@@ -77,17 +77,16 @@ namespace Nursia.Rendering
 				}
 
 				// Switch to shadow map material during shadow map pass
-				material = mesh.HasBones ? ShadowMapMaterial.DefaultSkinning : ShadowMapMaterial.Default;
+				material = bonesTransforms != null ? ShadowMapMaterial.DefaultSkinning : ShadowMapMaterial.Default;
 			}
 
-			var boundingBox = mesh.BoundingBox.Transform(ref transform);
+			var boundingBox = transformedBox ?? mesh.BoundingBox.Transform(ref transform);
 			if (Frustum.Contains(boundingBox) == ContainmentType.Disjoint)
 			{
-				// Cull invisible meshes
 				return;
 			}
 
-			var job = new RenderJob(material, transform, mesh);
+			var job = new RenderJob(material, transform, mesh, boundingBox, bonesTransforms);
 			Jobs.Add(job);
 
 			_jobsSorted = false;

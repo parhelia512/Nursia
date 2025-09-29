@@ -28,7 +28,7 @@ namespace Nursia.Standard
 		}
 	}
 
-	public class DefaultMaterial : BaseMaterial<DefaultEffectBinding>, IMaterial, IHasExternalAssets
+	public class DefaultMaterial : BaseMaterial<DefaultEffectBinding>, IMaterial, IHasExternalAssets, ISupportsSkinning
 	{
 		private bool _receivesLight = true;
 		private bool _receivesShadows = true;

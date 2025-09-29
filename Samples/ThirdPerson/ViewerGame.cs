@@ -1,11 +1,11 @@
 ﻿using AssetManagementBase;
+using DigitalRiseModel.Animation;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using Nursia;
-using Nursia.Animation;
-using Nursia.Modelling;
 using Nursia.Rendering;
+using Nursia.Standard;
 using System;
 using System.IO;
 using System.Reflection;
@@ -68,7 +68,7 @@ namespace SimpleScene
 			_scene = assetManager.LoadScene("Scenes/Main.scene");
 
 			_model = _scene.QueryByType<NursiaModelNode>()[0];
-			_player = new AnimationController(_model);
+			_player = new AnimationController(_model.ModelInstance);
 			_player.StartClip("idle");
 
 			_cameraMount = _scene.QueryFirstById("_cameraMount");
